@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ServicePro - Contractor Admin Dashboard | Analytics, Jobs & Leads</title>
+  <meta name="description" content="Commercial admin dashboard for flooring contractors featuring installation tracking, revenue analytics, lead management, and team dispatch.">
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+
+  <div class="dash-wrapper">
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div class="dash-sidebar-overlay" id="dashSidebarOverlay"></div>
+
+    <!-- Admin Sidebar Navigation -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <div class="dash-sidebar-header">
+        <a href="index.html" class="dash-brand">
+          <img src="assets/images/logo.png" alt="Marblon - Tile &amp; Marble Studio" class="brand-logo-img">
+        </a>
+        <a href="index.html" class="text-white-50 small" title="Back to Website">
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+
+      <div class="dash-sidebar-menu">
+        <div class="dash-menu-title">Main Control</div>
+        <a href="dashboard.html" class="dash-nav-link active">
+          <i class="fas fa-gauge-high"></i>
+          <span>Overview Analytics</span>
+        </a>
+        <a href="#inquiriesSection" class="dash-nav-link">
+          <i class="fas fa-inbox"></i>
+          <span>Lead Inquiries</span>
+          <span class="badge bg-warning text-dark ms-auto">8 New</span>
+        </a>
+        <a href="#" class="dash-nav-link">
+          <i class="fas fa-person-digging"></i>
+          <span>Active Job Sites</span>
+          <span class="badge bg-primary ms-auto">34</span>
+        </a>
+        <a href="#" class="dash-nav-link">
+          <i class="fas fa-calendar-alt"></i>
+          <span>Artisan Dispatch</span>
+        </a>
+
+        <div class="dash-menu-title">Inventory & Stone</div>
+        <a href="#" class="dash-nav-link">
+          <i class="fas fa-cubes"></i>
+          <span>Slab Warehouse</span>
+        </a>
+        <a href="#" class="dash-nav-link">
+          <i class="fas fa-file-invoice-dollar"></i>
+          <span>Estimates & Billing</span>
+        </a>
+        <a href="#" class="dash-nav-link">
+          <i class="fas fa-star-half-stroke"></i>
+          <span>Client Reviews</span>
+        </a>
+
+        <div class="dash-menu-title">System & Front Site</div>
+        <a href="index.html" class="dash-nav-link">
+          <i class="fas fa-globe"></i>
+          <span>Luxury Stone Showcase</span>
+        </a>
+        <a href="home-contractor.html" class="dash-nav-link">
+          <i class="fas fa-calculator"></i>
+          <span>Contractor Pro & Estimator</span>
+        </a>
+        <a href="pricing.html" class="dash-nav-link">
+          <i class="fas fa-tags"></i>
+          <span>Pricing Matrix</span>
+        </a>
+        <a href="login.html" class="dash-nav-link">
+          <i class="fas fa-lock"></i>
+          <span>Sign Out</span>
+        </a>
+      </div>
+
+      <div class="dash-sidebar-footer">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Admin Avatar" class="dash-user-avatar">
+        <div class="overflow-hidden">
+          <h6 class="mb-0 text-white fs-6 text-truncate">Julian Vance</h6>
+          <small class="text-white-50 text-truncate d-block">Senior Ops Director</small>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <div class="dash-main">
+      <!-- Topbar -->
+      <header class="dash-topbar">
+        <div class="d-flex align-items-center gap-3">
+          <button class="dash-icon-btn d-lg-none" id="sidebarToggleBtn" aria-label="Toggle Navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+          
+          <div class="position-relative d-none d-md-block">
+            <i class="fas fa-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+            <input type="text" class="form-control form-control-sm ps-5 dash-search-input" placeholder="Search orders, slabs, clients...">
+          </div>
+        </div>
+
+        <div class="dash-topbar-actions">
+          <!-- RTL / LTR Direction Toggle -->
+          <button class="dir-toggle-btn" aria-label="Toggle Direction RTL/LTR" title="Toggle RTL / LTR Direction">
+            <i class="fas fa-right-left"></i>
+          </button>
+
+          <!-- Dark / Light Mode Switcher -->
+          <button class="theme-toggle-btn" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+
+          <!-- Notifications Dropdown -->
+          <div class="dropdown">
+            <button class="dash-icon-btn" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications">
+              <i class="fas fa-bell"></i>
+              <span class="dash-notification-badge"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg" style="width: 320px;">
+              <li class="dropdown-header d-flex justify-content-between align-items-center py-2">
+                <span class="fw-bold">Notifications</span>
+                <span class="badge bg-warning text-dark">4 Unread</span>
+              </li>
+              <li><hr class="dropdown-divider my-0"></li>
+              <li>
+                <a class="dropdown-item py-2 d-flex gap-2" href="#">
+                  <i class="fas fa-file-invoice text-primary mt-1"></i>
+                  <div>
+                    <strong class="d-block text-truncate small">New Quote: Tribeca Penthouse</strong>
+                    <span class="text-muted small">Calacatta Marble • 850 sq ft</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item py-2 d-flex gap-2" href="#">
+                  <i class="fas fa-check-circle text-success mt-1"></i>
+                  <div>
+                    <strong class="d-block text-truncate small">Site Complete: The Carlton Lobby</strong>
+                    <span class="text-muted small">Approved by Architect Vance</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item py-2 d-flex gap-2" href="#">
+                  <i class="fas fa-triangle-exclamation text-warning mt-1"></i>
+                  <div>
+                    <strong class="d-block text-truncate small">Low Stock: Nero Marquina Slabs</strong>
+                    <span class="text-muted small">Only 4 bookmatched pairs left</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- User Menu Dropdown -->
+          <div class="dropdown">
+            <button class="btn btn-link p-0 text-decoration-none dropdown-toggle d-flex align-items-center gap-2" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Avatar" class="dash-user-avatar" style="width: 36px; height: 36px;">
+              <span class="d-none d-sm-inline fw-bold text-heading fs-6">Julian V.</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow">
+              <li><a class="dropdown-item" href="#"><i class="fas fa-user-gear me-2"></i> Profile Settings</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fas fa-shield me-2"></i> Security & 2FA</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger" href="login.html"><i class="fas fa-right-from-bracket me-2"></i> Log Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Workspace Body -->
+      <main class="dash-content">
+        <!-- Page Title & Quick Action -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+          <div>
+            <h2 class="h3 fw-bold mb-1">Contractor Operations Dashboard</h2>
+            <p class="text-muted mb-0">Overview of monthly revenue, active stone fabrication jobs, and inbound residential estimates.</p>
+          </div>
+          <div class="d-flex gap-2">
+            <a href="home-contractor.html#calculatorSection" class="btn btn-gold-outline btn-sm">
+              <i class="fas fa-calculator"></i> Quick Estimator
+            </a>
+            <a href="contact.html" class="btn btn-gold btn-sm">
+              <i class="fas fa-plus"></i> New Project Order
+            </a>
+          </div>
+        </div>
+
+        <!-- 4 Metric Cards -->
+        <div class="row g-4 mb-4">
+          <!-- Metric 1: Revenue -->
+          <div class="col-xl-3 col-sm-6">
+            <div class="metric-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <span class="text-muted small fw-bold text-uppercase">Monthly Revenue</span>
+                  <div class="metric-value">$148,250</div>
+                  <div class="metric-trend up">
+                    <i class="fas fa-arrow-trend-up"></i> +14.2% <span class="text-muted fw-normal">vs last month</span>
+                  </div>
+                </div>
+                <div class="metric-icon-box gold">
+                  <i class="fas fa-sack-dollar"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metric 2: Active Job Sites -->
+          <div class="col-xl-3 col-sm-6">
+            <div class="metric-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <span class="text-muted small fw-bold text-uppercase">Active Installations</span>
+                  <div class="metric-value">34</div>
+                  <div class="metric-trend up">
+                    <i class="fas fa-arrow-trend-up"></i> 6 Crews <span class="text-muted fw-normal">on site today</span>
+                  </div>
+                </div>
+                <div class="metric-icon-box teal">
+                  <i class="fas fa-person-digging"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metric 3: New Inquiries -->
+          <div class="col-xl-3 col-sm-6">
+            <div class="metric-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <span class="text-muted small fw-bold text-uppercase">New Inquiries</span>
+                  <div class="metric-value">128</div>
+                  <div class="metric-trend up">
+                    <i class="fas fa-arrow-trend-up"></i> +22.8% <span class="text-muted fw-normal">online quotes</span>
+                  </div>
+                </div>
+                <div class="metric-icon-box blue">
+                  <i class="fas fa-file-contract"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metric 4: Satisfaction Rate -->
+          <div class="col-xl-3 col-sm-6">
+            <div class="metric-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <span class="text-muted small fw-bold text-uppercase">Quality Pass Rate</span>
+                  <div class="metric-value">98.4%</div>
+                  <div class="metric-trend up">
+                    <i class="fas fa-check-double"></i> Zero lippage audits
+                  </div>
+                </div>
+                <div class="metric-icon-box purple">
+                  <i class="fas fa-shield-halved"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="row g-4 mb-4">
+          <!-- Chart 1: Revenue Trends -->
+          <div class="col-xl-8">
+            <div class="sp-card p-4 h-100">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                  <h4 class="h5 fw-bold mb-1">Installation Revenue Growth</h4>
+                  <p class="text-muted small mb-0">Monthly billing vs target performance across residential & commercial sectors</p>
+                </div>
+                <span class="badge badge-gold-subtle">USD ($)</span>
+              </div>
+              <div style="height: 310px;">
+                <canvas id="revenueChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chart 2: Service Mix Distribution -->
+          <div class="col-xl-4">
+            <div class="sp-card p-4 h-100">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                  <h4 class="h5 fw-bold mb-1">Service Mix Breakdown</h4>
+                  <p class="text-muted small mb-0">Project volume by material craft</p>
+                </div>
+              </div>
+              <div style="height: 310px;" class="position-relative">
+                <canvas id="serviceDistributionChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Inquiries & Lead Management Data Table -->
+        <div class="dash-table-wrapper mb-4" id="inquiriesSection">
+          <div class="dash-table-header">
+            <div>
+              <h4 class="h5 fw-bold mb-1">Recent Flooring Quotes & Site Inquiries</h4>
+              <p class="text-muted small mb-0">Live leads submitted via website calculators and contact requests</p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <input type="text" id="tableSearchInput" class="form-control form-control-sm" placeholder="Filter by client, stone, city...">
+              <button class="btn btn-outline-secondary btn-sm" title="Export CSV"><i class="fas fa-download"></i></button>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-custom table-hover" id="inquiriesTable">
+              <thead>
+                <tr>
+                  <th>Client Name</th>
+                  <th>Service Requested</th>
+                  <th>Sq Footage</th>
+                  <th>Est. Value</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th class="text-end">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="fw-bold">Sophia Montgomery</div>
+                    <small class="text-muted">Tribeca, New York</small>
+                  </td>
+                  <td><span class="badge bg-secondary-subtle text-secondary">Calacatta Gold Marble</span></td>
+                  <td>850 sq ft</td>
+                  <td class="fw-bold text-primary">$41,500</td>
+                  <td>Today, 10:14 AM</td>
+                  <td><span class="badge-status badge-status-new">New Lead</span></td>
+                  <td class="text-end">
+                    <button class="btn btn-sm btn-light border" title="Review Scope"><i class="fas fa-eye text-primary"></i></button>
+                    <button class="btn btn-sm btn-light border" title="Dispatch Tech"><i class="fas fa-truck text-warning"></i></button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="fw-bold">Harrison Cole (Apex Devs)</div>
+                    <small class="text-muted">Jersey City Waterfront</small>
+                  </td>
+                  <td><span class="badge bg-secondary-subtle text-secondary">Large Porcelain Slabs</span></td>
+                  <td>3,200 sq ft</td>
+                  <td class="fw-bold text-primary">$96,000</td>
+                  <td>Yesterday</td>
+                  <td><span class="badge-status badge-status-progress">In Progress</span></td>
+                  <td class="text-end">
+                    <button class="btn btn-sm btn-light border"><i class="fas fa-eye text-primary"></i></button>
+                    <button class="btn btn-sm btn-light border"><i class="fas fa-truck text-warning"></i></button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="fw-bold">Dr. Amanda Hayes</div>
+                    <small class="text-muted">Greenwich, CT</small>
+                  </td>
+                  <td><span class="badge bg-secondary-subtle text-secondary">Diamond Marble Honing</span></td>
+                  <td>600 sq ft</td>
+                  <td class="fw-bold text-primary">$6,800</td>
+                  <td>Nov 04, 2026</td>
+                  <td><span class="badge-status badge-status-consultation">Consultation Set</span></td>
+                  <td class="text-end">
+                    <button class="btn btn-sm btn-light border"><i class="fas fa-eye text-primary"></i></button>
+                    <button class="btn btn-sm btn-light border"><i class="fas fa-truck text-warning"></i></button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="fw-bold">Carlton Hotel Management</div>
+                    <small class="text-muted">Midtown Manhattan</small>
+                  </td>
+                  <td><span class="badge bg-secondary-subtle text-secondary">Travertine Atrium Restore</span></td>
+                  <td>8,000 sq ft</td>
+                  <td class="fw-bold text-primary">$185,000</td>
+                  <td>Nov 02, 2026</td>
+                  <td><span class="badge-status badge-status-completed">Completed</span></td>
+                  <td class="text-end">
+                    <button class="btn btn-sm btn-light border"><i class="fas fa-eye text-primary"></i></button>
+                    <button class="btn btn-sm btn-light border"><i class="fas fa-receipt text-success"></i></button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="fw-bold">Victoria Vance-Reyes</div>
+                    <small class="text-muted">Upper East Side, NY</small>
+                  </td>
+                  <td><span class="badge bg-secondary-subtle text-secondary">Carrara Master Bathroom</span></td>
+                  <td>380 sq ft</td>
+                  <td class="fw-bold text-primary">$18,400</td>
+                  <td>Nov 01, 2026</td>
+                  <td><span class="badge-status badge-status-progress">Under Layout</span></td>
+                  <td class="text-end">
+                    <button class="btn btn-sm btn-light border"><i class="fas fa-eye text-primary"></i></button>
+                    <button class="btn btn-sm btn-light border"><i class="fas fa-truck text-warning"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Table Footer Pagination -->
+          <div class="p-3 border-top d-flex justify-content-between align-items-center">
+            <span class="text-muted small">Showing 1 to 5 of 128 recorded client inquiries</span>
+            <ul class="pagination pagination-sm mb-0">
+              <li class="page-item disabled"><a class="page-link" href="#">Prev</a></li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+  <!-- Bootstrap 5 Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Main Script (Theme toggles) -->
+  <script src="assets/js/main.js"></script>
+  <!-- Dashboard Script -->
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
