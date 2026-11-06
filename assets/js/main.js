@@ -135,6 +135,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --------------------------------------------------
+     3.1 SMOOTH NAVBAR DROPDOWN STABILITY
+     -------------------------------------------------- */
+  const dropdownToggles = document.querySelectorAll('.sp-navbar .dropdown-toggle');
+  dropdownToggles.forEach((toggle) => {
+    toggle.addEventListener('click', (e) => {
+      if (window.innerWidth >= 992 && toggle.getAttribute('href') === '#') {
+        e.preventDefault();
+      }
+    });
+  });
+
+  /* --------------------------------------------------
      4. NUMERIC COUNTERS (INTERSECTION OBSERVER)
      -------------------------------------------------- */
   const counterElements = document.querySelectorAll('.counter-number[data-target]');
