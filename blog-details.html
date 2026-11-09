@@ -164,7 +164,7 @@
               "Etching is not a stain; it is physical chemical corrosion of the stone crystal itself. Understanding this chemical distinction is the first step toward permanent prevention."
             </blockquote>
 
-            <h3 class="h4 fw-bold text-heading mt-5 mb-3">1. The Difference Between Staining and Etching</h3>
+            <h3 class="h4 fw-bold text-heading mt-5 mb-3" id="stainingVsEtching">1. The Difference Between Staining and Etching</h3>
             <p>
               Many homeowners confuse stains with etches:
             </p>
@@ -174,7 +174,7 @@
             </ul>
 
             <!-- Comparison Table -->
-            <div class="table-responsive my-4">
+            <div class="table-responsive my-4" id="stoneChemistryTable">
               <table class="table table-bordered align-middle">
                 <thead class="table-dark">
                   <tr>
@@ -207,7 +207,7 @@
               </table>
             </div>
 
-            <h3 class="h4 fw-bold text-heading mt-5 mb-3">2. How to Protect Your Marble Floors & Countertops</h3>
+            <h3 class="h4 fw-bold text-heading mt-5 mb-3" id="defenseProtocols">2. How to Protect Your Marble Floors & Countertops</h3>
             <p>
               To keep your natural marble in museum condition, our certified technicians enforce a three-tier defense system:
             </p>
@@ -235,7 +235,7 @@
           </div>
 
           <!-- Author Bio Box -->
-          <div class="p-4 bg-surface rounded-4 border d-flex gap-4 align-items-center mb-5">
+          <div class="p-4 bg-surface rounded-4 border d-flex gap-4 align-items-center mb-5" id="authorBio">
             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Matteo Rossi" class="rounded-circle flex-shrink-0" style="width: 80px; height: 80px; object-fit: cover; border: 3px solid var(--sp-primary);">
             <div>
               <h5 class="fw-bold mb-1">Written by Matteo Rossi</h5>
@@ -245,7 +245,7 @@
           </div>
 
           <!-- Comments Section -->
-          <h3 class="h4 fw-bold mb-4">Client Discussion (2 Comments)</h3>
+          <h3 class="h4 fw-bold mb-4" id="clientDiscussion">Client Discussion (2 Comments)</h3>
           <div class="d-flex gap-3 mb-4">
             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Sarah Jenkins" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
             <div>
@@ -293,16 +293,104 @@
 
         <!-- Sidebar -->
         <div class="col-lg-4">
-          <div class="sidebar-widget">
-            <h4 class="sidebar-widget-title">About ServicePro</h4>
-            <p class="text-muted small">We are certified master stonecutters and tile contractors serving architectural and luxury residential clients nationwide.</p>
-            <a href="about.html" class="btn btn-gold-outline btn-sm">Company Story <i class="fas fa-arrow-right ms-1"></i></a>
+          <!-- 1. Interactive Table of Contents -->
+          <div class="sidebar-widget p-4 bg-card rounded-4 border mb-4 shadow-sm">
+            <h4 class="sidebar-widget-title h5 fw-bold mb-3"><i class="fas fa-list-ul text-primary me-2"></i>In This Masterclass</h4>
+            <nav class="nav flex-column gap-2 small">
+              <a href="#stainingVsEtching" class="nav-link p-0 text-muted d-flex align-items-center gap-2"><i class="fas fa-chevron-right text-primary fs-xs"></i> 1. Staining vs. Etching Difference</a>
+              <a href="#stoneChemistryTable" class="nav-link p-0 text-muted d-flex align-items-center gap-2"><i class="fas fa-chevron-right text-primary fs-xs"></i> Stone Chemistry & Acid Table</a>
+              <a href="#defenseProtocols" class="nav-link p-0 text-muted d-flex align-items-center gap-2"><i class="fas fa-chevron-right text-primary fs-xs"></i> 2. How to Protect Your Marble</a>
+              <a href="#authorBio" class="nav-link p-0 text-muted d-flex align-items-center gap-2"><i class="fas fa-chevron-right text-primary fs-xs"></i> Master Carver Credentials</a>
+              <a href="#clientDiscussion" class="nav-link p-0 text-muted d-flex align-items-center gap-2"><i class="fas fa-chevron-right text-primary fs-xs"></i> Client Q&A (2 Verified Comments)</a>
+            </nav>
           </div>
 
-          <div class="sidebar-widget">
-            <h4 class="sidebar-widget-title">Need Stone Care?</h4>
-            <p class="text-muted small">Our dustless restoration crews dispatch directly to your home with specialized diamond polishing rigs.</p>
-            <a href="contact.html" class="btn btn-gold w-100 btn-sm"><i class="fas fa-calendar-check me-1"></i> Book Stone Assessment</a>
+          <!-- 2. Acid pH Stone Hazard Scale -->
+          <div class="sidebar-widget p-4 bg-card rounded-4 border mb-4 shadow-sm" id="phHazardWidget">
+            <div class="d-flex align-items-center justify-content-between mb-3 pb-2 border-bottom">
+              <h4 class="sidebar-widget-title h5 fw-bold mb-0 border-0 p-0"><i class="fas fa-vial text-warning me-2"></i>Acid pH Hazard Scale</h4>
+              <span class="badge bg-danger-subtle text-danger small">Calcite Risks</span>
+            </div>
+            <p class="text-muted small mb-3">Any liquid below pH 5.0 chemically dissolves marble on contact within 30 seconds:</p>
+            <div class="vstack gap-2 small mb-3">
+              <div class="d-flex justify-content-between align-items-center p-2 rounded bg-surface">
+                <span><i class="fas fa-lemon text-warning me-2"></i>Lemon Juice (pH 2.0)</span>
+                <span class="badge bg-danger">Instant Etch</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center p-2 rounded bg-surface">
+                <span><i class="fas fa-wine-glass text-danger me-2"></i>Red Wine (pH 3.5)</span>
+                <span class="badge bg-danger">Etch + Stain</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center p-2 rounded bg-surface">
+                <span><i class="fas fa-mug-hot text-secondary me-2"></i>Black Coffee (pH 4.8)</span>
+                <span class="badge bg-warning text-dark">Mild Etch</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center p-2 rounded bg-surface">
+                <span><i class="fas fa-faucet text-primary me-2"></i>Distilled Water (pH 7.0)</span>
+                <span class="badge bg-success">100% Safe</span>
+              </div>
+            </div>
+            <div class="p-2 rounded bg-surface-alt border text-muted" style="font-size: 0.8rem;">
+              <i class="fas fa-lightbulb text-primary me-1"></i> <strong>Pro Tip:</strong> Never wipe acid with dry towels; flush with baking soda slurry first.
+            </div>
+          </div>
+
+          <!-- 3. Need Marble Restoration? -->
+          <div class="sidebar-widget p-4 bg-card rounded-4 border mb-4 shadow-sm">
+            <div class="d-flex align-items-center justify-content-between mb-3 pb-2 border-bottom">
+              <h4 class="sidebar-widget-title h5 fw-bold mb-0 border-0 p-0"><i class="fas fa-hammer text-primary me-2"></i>Need Stone Care?</h4>
+              <span class="badge bg-success-subtle text-success small">Rapid Dispatch</span>
+            </div>
+            <p class="text-muted small mb-3">Our dustless diamond restoration crews dispatch directly to your home with specialized continuous-feed slurry extractors.</p>
+            <ul class="list-unstyled small text-muted mb-3 vstack gap-1">
+              <li><i class="fas fa-check-circle text-primary me-2"></i> Same-day photo assessment & quote</li>
+              <li><i class="fas fa-check-circle text-primary me-2"></i> 100% dustless slurry extractor rigs</li>
+              <li><i class="fas fa-check-circle text-primary me-2"></i> 10-year anti-etch fluoropolymer barrier</li>
+            </ul>
+            <a href="contact.html" class="btn btn-gold btn-sm w-100 mb-2"><i class="fas fa-calendar-check me-2"></i> Book Stone Assessment</a>
+            <div class="p-2 bg-surface text-center rounded small fw-bold text-heading">
+              <i class="fas fa-phone-alt text-primary me-2"></i> Direct Dispatch: (212) 555-ETCH
+            </div>
+          </div>
+
+          <!-- 4. Sticky Bottom Action Widgets -->
+          <div class="blog-sidebar-sticky">
+            <!-- Free PDF Download Card -->
+            <div class="sidebar-widget p-4 bg-card rounded-4 border mb-4 shadow-sm">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="p-2 rounded bg-danger-subtle text-danger fs-4"><i class="fas fa-file-pdf"></i></div>
+                <div>
+                  <h6 class="fw-bold mb-0">Architect's Stone Care Manual</h6>
+                  <small class="text-muted">16-Page High-Res PDF (2026 Edition)</small>
+                </div>
+              </div>
+              <p class="small text-muted mb-3">Full technical specification sheets for fluoropolymer sealing, micro-honing grits, and deflection testing.</p>
+              <a href="contact.html" class="btn btn-gold-outline btn-sm w-100"><i class="fas fa-download me-1"></i> Access PDF Manual</a>
+            </div>
+
+            <!-- Architectural Topic Tags -->
+            <div class="sidebar-widget p-4 bg-card rounded-4 border mb-4 shadow-sm">
+              <h4 class="sidebar-widget-title h5 fw-bold mb-3"><i class="fas fa-tags text-primary me-2"></i>Architectural Topic Tags</h4>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge badge-outline">Calacatta</span>
+                <span class="badge badge-outline">Diamond Honing</span>
+                <span class="badge badge-outline">Schluter DITRA</span>
+                <span class="badge badge-outline">Sintered Stone</span>
+                <span class="badge badge-outline">Bookmatching</span>
+                <span class="badge badge-outline">Acid Etch Fix</span>
+                <span class="badge badge-outline">Subfloor L/720</span>
+              </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="sidebar-widget p-4 bg-primary text-white rounded-4 border shadow-sm">
+              <h5 class="fw-bold mb-2">Subscribe to Stonecraft Digest</h5>
+              <p class="small text-white-50 mb-3">Receive monthly maintenance guides and architectural design case studies.</p>
+              <div class="input-group">
+                <input type="email" class="form-control form-control-sm" placeholder="Enter your email">
+                <button class="btn btn-warning btn-sm" type="button"><i class="fas fa-arrow-right"></i></button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
