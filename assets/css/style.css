@@ -1412,9 +1412,23 @@ img {
   font-weight: 600;
   padding: 0.28rem 0.6rem;
   letter-spacing: 0.03em;
-  white-space: nowrap;
+  white-space: normal;
+  max-width: 100%;
   flex-shrink: 0;
-  line-height: 1.2;
+  line-height: 1.25;
+}
+
+.service-card .portfolio-meta,
+.portfolio-card .portfolio-meta {
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.service-card .service-footer,
+.portfolio-card .service-footer {
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .service-card .service-footer a {
@@ -1864,11 +1878,8 @@ img {
   color: var(--sp-text-muted);
   line-height: 1.55;
   margin-bottom: 1.25rem;
-  min-height: 5.3rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  min-height: 5rem;
+  display: block;
 }
 
 .stone-specs-list {
@@ -3488,5 +3499,437 @@ img {
   color: #edebe4 !important;
   font-size: 1.15rem;
   line-height: 1.75;
+}
+
+/* ==========================================================================
+   20. NEW ABOUT PAGE SECTIONS (PILLARS, WORKFLOW, SHOWROOM, CERTS, CTA)
+   ========================================================================== */
+
+/* Pillars of Craftsmanship */
+.about-pillar-card {
+  background-color: var(--sp-bg-card);
+  border: 1px solid var(--sp-border-color);
+  border-radius: var(--sp-radius-lg);
+  padding: 1.5rem 1.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--sp-transition-normal);
+}
+
+.about-pillar-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--palette-4);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+.about-pillar-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(127, 79, 36, 0.1);
+  color: var(--sp-primary) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  margin-bottom: 1.1rem;
+  transition: all var(--sp-transition-fast);
+}
+
+[data-bs-theme="dark"] .about-pillar-icon {
+  background: rgba(166, 138, 100, 0.18);
+  color: var(--palette-4) !important;
+}
+
+.about-pillar-card:hover .about-pillar-icon {
+  background: var(--sp-primary);
+  color: #ffffff !important;
+}
+
+[data-bs-theme="dark"] .about-pillar-card:hover .about-pillar-icon {
+  background: var(--palette-4);
+  color: #191e14 !important;
+}
+
+.about-pillar-card h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.65rem;
+  color: var(--sp-text-heading);
+  min-height: 2.85rem;
+  display: flex;
+  align-items: center;
+}
+
+.about-pillar-card p {
+  font-size: 0.865rem;
+  line-height: 1.6;
+  color: var(--sp-text-muted);
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.about-pillar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  background: rgba(127, 79, 36, 0.10);
+  color: var(--sp-primary);
+  border: 1px solid rgba(127, 79, 36, 0.22);
+  border-radius: var(--sp-radius-pill, 50px);
+  max-width: 100%;
+  white-space: normal;
+  word-break: normal;
+  line-height: 1.35;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+[data-bs-theme="dark"] .about-pillar-badge {
+  background: rgba(166, 138, 100, 0.18);
+  color: var(--palette-4);
+  border-color: rgba(166, 138, 100, 0.35);
+}
+
+[dir="rtl"] .about-pillar-badge {
+  text-align: right;
+}
+
+/* 5-Stage Precision Workflow */
+.workflow-step-card {
+  background-color: var(--sp-bg-card);
+  border: 1px solid var(--sp-border-color);
+  border-radius: var(--sp-radius-lg);
+  padding: 1.6rem 1.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--sp-transition-normal);
+}
+
+.workflow-step-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--palette-4);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+}
+
+.workflow-step-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.1rem;
+}
+
+.workflow-step-num {
+  font-family: var(--sp-font-heading);
+  font-size: 2.15rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--palette-4);
+  opacity: 0.8;
+}
+
+.workflow-step-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(127, 79, 36, 0.10);
+  color: var(--sp-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+}
+
+[data-bs-theme="dark"] .workflow-step-icon {
+  color: var(--palette-4);
+  background: rgba(166, 138, 100, 0.2);
+}
+
+.workflow-step-card h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+  color: var(--sp-text-heading);
+  min-height: 2.85rem;
+  display: flex;
+  align-items: center;
+}
+
+.workflow-step-card p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--sp-text-muted);
+  margin-bottom: 0;
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Showroom Showcase */
+.showroom-img-frame {
+  position: relative;
+  border-radius: var(--sp-radius-xl, 24px);
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.16);
+  min-height: 440px;
+}
+
+.showroom-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.showroom-img-frame:hover img {
+  transform: scale(1.03);
+}
+
+.showroom-glass-badge {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  background: rgba(20, 26, 16, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(166, 138, 100, 0.4);
+  border-radius: var(--sp-radius-lg);
+  padding: 1.1rem 1.4rem;
+  color: #ffffff;
+}
+
+[dir="rtl"] .showroom-glass-badge {
+  text-align: right;
+}
+
+.showroom-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.showroom-feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--sp-text-color);
+  line-height: 1.5;
+}
+
+.showroom-feature-list li i {
+  color: var(--palette-4);
+  font-size: 1.1rem;
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+/* Accreditations Grid */
+.accreditation-card {
+  background-color: var(--sp-bg-card);
+  border: 1px solid var(--sp-border-color);
+  border-radius: var(--sp-radius-md);
+  padding: 1.5rem 1.15rem;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  transition: all var(--sp-transition-normal);
+  overflow: hidden;
+}
+
+.accreditation-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--palette-4);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.accreditation-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(166, 138, 100, 0.12);
+  color: var(--palette-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 0.85rem;
+}
+
+.accreditation-card h5 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--sp-text-heading);
+  margin-bottom: 0.35rem;
+  min-height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.accreditation-card p {
+  font-size: 0.8rem;
+  color: var(--sp-text-muted);
+  line-height: 1.45;
+  margin-bottom: 0;
+  flex-grow: 1;
+}
+
+/* About Impact Stats Bar */
+.about-stats-card {
+  background: linear-gradient(135deg, #202717 0%, #13190e 100%);
+  border: 1px solid rgba(166, 138, 100, 0.35);
+  border-radius: var(--sp-radius-xl, 24px);
+  padding: 2.5rem 2rem;
+  color: #ffffff;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.2);
+}
+
+.about-stat-item {
+  text-align: center;
+  padding: 0.5rem 1rem;
+}
+
+.about-stat-number {
+  font-family: var(--sp-font-heading);
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #dfb15b;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.about-stat-label {
+  font-size: 0.88rem;
+  color: #e5e9de;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* About Luxury CTA Banner */
+.about-cta-card {
+  background: linear-gradient(135deg, #1b2214 0%, #10150c 100%);
+  border: 1px solid rgba(166, 138, 100, 0.35);
+  border-radius: var(--sp-radius-xl, 24px);
+  padding: 3.5rem 2.5rem;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+}
+
+.about-cta-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(166, 138, 100, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   21. GLOBAL ANTI-CROPPING & RESPONSIVE OVERFLOW SAFEGUARDS (ALL PAGES)
+   ========================================================================== */
+
+/* Prevent horizontal viewport overflow and mobile page clipping */
+html, body {
+  max-width: 100vw;
+  overflow-x: clip;
+}
+
+/* Ensure all cards across all pages prevent content cropping or bleeding */
+.sp-card,
+.service-card,
+.portfolio-card,
+.stone-vault-card,
+.blog-card,
+.about-feature-card,
+.about-pillar-card,
+.workflow-step-card,
+.accreditation-card,
+.team-artisan-card,
+.stone-compare-card {
+  box-sizing: border-box;
+  overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.pricing-card {
+  box-sizing: border-box;
+  overflow: visible !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Global badge wrapping protection: prevent badges from overflowing outside card boundaries */
+.badge,
+.badge-gold-subtle,
+.badge-outline,
+.craft-metric-badge,
+.stone-origin-badge,
+.header-metric-pill {
+  white-space: normal !important;
+  max-width: 100%;
+  word-break: normal;
+  overflow-wrap: break-word;
+  line-height: 1.35;
+  box-sizing: border-box;
+}
+
+/* Heading & title text wrapping protection */
+.service-title,
+.stone-title,
+.blog-title,
+.pricing-title,
+.section-title,
+.page-header-title,
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: normal;
+}
+
+/* Responsive header pills wrap without clipping */
+.header-metric-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.header-metric-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  max-width: 100%;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.82rem;
+  line-height: 1.3;
+  white-space: normal !important;
 }
 
