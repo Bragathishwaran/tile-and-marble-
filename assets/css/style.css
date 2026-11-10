@@ -752,6 +752,18 @@ img {
   box-shadow: 0 8px 20px rgba(127, 79, 36, 0.25);
 }
 
+/* Card, form and full-width buttons use the Image 1 rounded rectangle design */
+.btn-gold.w-100,
+.btn-gold-outline.w-100,
+form .btn-gold,
+form .btn-gold-outline,
+.sidebar-widget .btn-gold,
+.sidebar-widget .btn-gold-outline,
+.sp-card .btn-gold,
+.sp-card .btn-gold-outline {
+  border-radius: var(--sp-radius-md, 10px) !important;
+}
+
 /* Secondary CTA Buttons on Dark Heroes & Dark Sections (High Contrast & Frosted Glass) */
 .hero-general .btn-gold-outline,
 .btn-gold-outline.text-white,
@@ -2049,14 +2061,18 @@ img {
   flex-shrink: 0;
 }
 
-/* Consultation & Slab Reservation Card Buttons (Compact, Aligned & Responsive) */
+/* --------------------------------------------------
+   CONSULTATION, RESERVATION & BANNER CTA BUTTONS
+   (Standardized Image 1 Design: Softly Rounded Rectangle, Compact, High-End & Responsive)
+   -------------------------------------------------- */
+.btn-cta-gold,
 .reservation-btn-primary {
   background: linear-gradient(135deg, var(--sp-primary) 0%, var(--sp-primary-hover) 100%) !important;
   color: #ffffff !important;
   font-family: var(--sp-font-heading);
   font-weight: 600;
   font-size: 0.88rem !important;
-  padding: 0.55rem 1rem !important;
+  padding: 0.55rem 1.15rem !important;
   border-radius: var(--sp-radius-md, 10px) !important;
   border: none !important;
   display: inline-flex;
@@ -2066,11 +2082,11 @@ img {
   text-decoration: none;
   box-shadow: 0 3px 12px rgba(127, 79, 36, 0.28);
   transition: all var(--sp-transition-fast);
-  width: 100%;
-  text-align: center;
   line-height: 1.35;
+  white-space: nowrap;
 }
 
+.btn-cta-gold:hover,
 .reservation-btn-primary:hover {
   background: linear-gradient(135deg, var(--sp-primary-hover) 0%, var(--palette-1) 100%) !important;
   transform: translateY(-2px);
@@ -2078,13 +2094,14 @@ img {
   color: #ffffff !important;
 }
 
+.btn-cta-frosted,
 .reservation-btn-secondary {
   background: rgba(255, 255, 255, 0.08) !important;
   color: #ffffff !important;
   font-family: var(--sp-font-heading);
   font-weight: 500;
-  font-size: 0.82rem !important;
-  padding: 0.5rem 0.85rem !important;
+  font-size: 0.84rem !important;
+  padding: 0.55rem 1.15rem !important;
   border-radius: var(--sp-radius-md, 10px) !important;
   border: 1px solid rgba(255, 255, 255, 0.22) !important;
   display: inline-flex;
@@ -2093,11 +2110,11 @@ img {
   gap: 0.45rem;
   text-decoration: none;
   transition: all var(--sp-transition-fast);
-  width: 100%;
-  text-align: center;
   line-height: 1.35;
+  white-space: nowrap;
 }
 
+.btn-cta-frosted:hover,
 .reservation-btn-secondary:hover {
   background: rgba(255, 255, 255, 0.16) !important;
   border-color: rgba(255, 255, 255, 0.45) !important;
@@ -2105,10 +2122,40 @@ img {
   transform: translateY(-2px);
 }
 
+.btn-cta-frosted i,
 .reservation-btn-secondary i {
   color: var(--palette-4) !important;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   flex-shrink: 0;
+}
+
+/* Banner CTA Group for Consultation Sections */
+.banner-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 575.98px) {
+  .banner-cta-group {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .banner-cta-group .btn-cta-gold,
+  .banner-cta-group .btn-cta-frosted {
+    width: 100%;
+  }
+  .btn-cta-gold,
+  .btn-cta-frosted,
+  .reservation-btn-primary,
+  .reservation-btn-secondary {
+    white-space: normal;
+  }
 }
 
 /* --------------------------------------------------
