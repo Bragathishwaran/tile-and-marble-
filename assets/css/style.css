@@ -585,12 +585,22 @@ img {
   transform: translateY(-1px);
 }
 
-.theme-toggle-btn i {
-  color: #e5e9de;
+.theme-toggle-btn i,
+.dir-toggle-btn i,
+.theme-toggle-btn .fa-sun,
+.theme-toggle-btn .fa-moon,
+.dir-toggle-btn .fa-right-left {
+  color: #ffffff !important;
+  font-size: 0.88rem;
+  transition: color var(--sp-transition-fast);
 }
 
-.dir-toggle-btn i {
-  color: #ffffff;
+.theme-toggle-btn:hover i,
+.dir-toggle-btn:hover i,
+.theme-toggle-btn:hover .fa-sun,
+.theme-toggle-btn:hover .fa-moon,
+.dir-toggle-btn:hover .fa-right-left {
+  color: #ffffff !important;
 }
 
 /* Dedicated Navbar CTA Button ("Free In-Home Estimate" - Compact Modern) */
@@ -2474,6 +2484,33 @@ form .btn-gold-outline,
   border: 2px solid var(--sp-primary);
   box-shadow: 0 15px 35px rgba(127, 79, 36, 0.20);
   transform: scale(1.03);
+}
+
+/* High-Contrast legibility assurance in both light and dark modes */
+.pricing-card h3,
+.pricing-card h4,
+.pricing-card .h4,
+.pricing-card .h5,
+.pricing-card.featured h3,
+.pricing-card.featured h4,
+.pricing-card.featured .h4,
+.pricing-card.featured .h5 {
+  color: var(--sp-text-heading);
+}
+
+.pricing-card p,
+.pricing-card.featured p {
+  color: var(--sp-text-muted);
+}
+
+.pricing-card .pricing-price,
+.pricing-card.featured .pricing-price {
+  color: var(--sp-text-heading);
+}
+
+.pricing-card .pricing-price small,
+.pricing-card.featured .pricing-price small {
+  color: var(--sp-text-muted);
 }
 
 .pricing-badge-popular {

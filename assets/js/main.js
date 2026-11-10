@@ -27,11 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const icon = btn.querySelector('i');
       if (icon) {
         if (theme === 'dark') {
-          icon.className = 'fas fa-sun text-warning';
+          icon.className = 'fas fa-sun';
           btn.setAttribute('title', 'Switch to Light Mode');
           btn.setAttribute('aria-label', 'Switch to Light Mode');
         } else {
-          icon.className = 'fas fa-moon text-secondary';
+          icon.className = 'fas fa-moon';
           btn.setAttribute('title', 'Switch to Dark Mode');
           btn.setAttribute('aria-label', 'Switch to Dark Mode');
         }
