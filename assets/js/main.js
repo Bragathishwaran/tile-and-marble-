@@ -1,5 +1,5 @@
 /**
- * ServicePro - Multipurpose Business & Admin Dashboard Template
+ * ServicePro - Master Tile & Marble Flooring Contractor Template
  * Main Client & Frontend JavaScript
  * Vanilla ES6+ - Theme Switching, RTL/LTR Direction, Calculator, Filters, Interactivity
  */

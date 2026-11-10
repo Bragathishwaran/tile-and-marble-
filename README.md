@@ -1,7 +1,7 @@
-# ServicePro - Multipurpose Business & Admin Dashboard Template
+# ServicePro - Master Tile & Marble Flooring Contractor Template
 ### Niche: Tile & Marble Flooring Contractor | Commercial HTML5 Template
 
-**ServicePro** is a modern, high-converting, fully responsive HTML5/CSS3/ES6+ website and admin control panel template crafted specifically for tile, Italian marble, granite, and stone flooring contractors, artisans, interior architects, and construction service businesses.
+**ServicePro** is a modern, high-converting, fully responsive HTML5/CSS3/ES6+ website template crafted specifically for tile, Italian marble, granite, and stone flooring contractors, artisans, interior architects, and construction service businesses.
 
 Engineered to meet the strict commercial release standards of marketplaces such as **ThemeForest** and **TemplateMonster**.
 
@@ -33,7 +33,7 @@ Engineered to meet the strict commercial release standards of marketplaces such 
   - Filterable article archive with instant search and category pills.
   - Interactive Article Quick-Reader Modal.
 - **Interactive Tile & Marble Cost Calculator (`home-contractor.html`)**: Live material estimator allowing users to adjust square footage, choose from 6 stone varieties, surface finishes, and pattern cuts to calculate labor, material, and turnaround days in real time.
-- **Admin Dashboard Control Panel (`dashboard.html`)**: Complete management layout featuring Chart.js analytics widgets (Revenue Trends, Service Mix Distribution), live searchable inquiry data table, notification dropdown, and responsive drawer navigation.
+- **Specialized Division Specification Pages (`service-*.html`)**: Dedicated technical specification pages for Italian Marble, Large Porcelain Slabs, Diamond Honing, Granite Slabs, Custom Mosaics, and Commercial Flooring.
 
 ---
 
@@ -48,19 +48,21 @@ Tile and marble/
 ├── blog.html                   # All-in-One Blog Hub: Search, Category Filters, Chemistry Guide, Q&A & Reader Modal
 ├── contact.html                # Contact Us: Quote Form & Interactive Map
 ├── pricing.html                # Pricing: Tier Packages & Feature Comparison Matrix
-├── dashboard.html              # Admin Dashboard: Analytics, Charts & Leads Table
-├── login.html                  # Auth: Client Portal Sign In
-├── register.html               # Auth: Contractor / Client Registration
+├── service-marble.html         # Division Specs: Italian Marble Installation & Bookmatching
+├── service-porcelain.html      # Division Specs: Large-Format Porcelain Panels
+├── service-honing.html         # Division Specs: Dustless Diamond Honing & Restoration
+├── service-granite.html        # Division Specs: Granite & Engineered Quartz Slabs
+├── service-mosaic.html         # Division Specs: Herringbone, Chevron & Custom Mosaics
+├── service-commercial.html     # Division Specs: Commercial & Hotel Lobby Flooring
+├── service-details.html        # Division Specs: Architectural Craftsmanship & Protocols
 ├── coming-soon.html            # Maintenance: Live JS Countdown Timer
 ├── 404.html                    # Error 404: Stone Slab Not Found
 ├── README.md                   # Complete Documentation & Customization Guide
 └── assets/
     ├── css/
-    │   ├── style.css           # Global Theme & Component Stylesheet
-    │   └── dashboard.css       # Admin Dashboard Layout & Metric Styling
+    │   └── style.css           # Global Theme & Component Stylesheet
     ├── js/
-    │   ├── main.js             # Theme Switcher, RTL Toggle, Quick Specs Modal, Article Reader Modal & Interactivity
-    │   └── dashboard.js        # Chart.js Analytics, Sidebar Drawer & Table Search
+    │   └── main.js             # Theme Switcher, RTL Toggle, Quick Specs Modal, Article Reader Modal & Interactivity
     └── images/
         ├── logo.png                                # Official Transparent Brand Logo (High-Res, Multi-Surface Adaptive)
         ├── logo.jpg                                # Original Brand Logo (Marblon Tile & Marble Studio)
@@ -112,7 +114,7 @@ The design system incorporates the 10-shade architectural earth, terracotta, tra
 4. Visit `services.html` to explore the Grid/List view toggle, the 4-Stage Precision Protocol, the 3-Tier Investment Matrix, the Technical FAQ Accordion, and click **Full Specs** to trigger the interactive Quick-Specs Modal.
 5. Visit `blog.html` to review the featured masterclass guide, stone chemistry table, client discussion Q&A, and test the live search and category filter.
 6. Open `home-contractor.html` to test the interactive square-footage cost calculator.
-7. Open `dashboard.html` to preview the admin analytics control panel with Chart.js visualization.
+7. Open `service-marble.html` (or any `service-*.html`) to inspect the dedicated division technical specifications.
 
 ---
 
