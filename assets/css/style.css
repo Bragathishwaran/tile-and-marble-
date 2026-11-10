@@ -373,7 +373,22 @@ img {
 }
 
 .sp-navbar .nav-link.dropdown-toggle::after {
-  display: none !important; /* Replaced with crisp FontAwesome chevron */
+  border: none !important; /* Remove Bootstrap default triangle caret */
+}
+
+.sp-navbar .nav-link.dropdown-toggle:not(.active)::after {
+  display: none !important;
+}
+
+.sp-navbar .nav-link.dropdown-toggle.active::after {
+  content: '';
+  display: block;
+  width: 26px;
+  height: 3px;
+  background-color: var(--palette-4);
+  border-radius: var(--sp-radius-pill);
+  margin-top: 3px;
+  box-shadow: 0 1px 4px rgba(166, 138, 100, 0.4);
 }
 
 .sp-navbar .nav-caret {

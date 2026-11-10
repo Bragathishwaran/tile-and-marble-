@@ -140,8 +140,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const dropdownToggles = document.querySelectorAll('.sp-navbar .dropdown-toggle');
   dropdownToggles.forEach((toggle) => {
     toggle.addEventListener('click', (e) => {
-      if (window.innerWidth >= 992 && toggle.getAttribute('href') === '#') {
-        e.preventDefault();
+      const href = toggle.getAttribute('href');
+      if (window.innerWidth >= 992 && href && href !== '#') {
+        window.location.href = href;
       }
     });
   });
