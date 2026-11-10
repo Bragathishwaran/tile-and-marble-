@@ -2567,6 +2567,47 @@ form .btn-gold-outline,
 }
 
 /* --------------------------------------------------
+   12b. PAYMENT MILESTONE POLICY CARDS (Pricing Page)
+   -------------------------------------------------- */
+.milestone-card {
+  transition: transform var(--sp-transition-fast), box-shadow var(--sp-transition-fast);
+}
+
+.milestone-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.milestone-icon-box,
+.brand-icon.rounded-circle {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.milestone-icon-box i,
+.brand-icon.rounded-circle i,
+.milestone-card .milestone-icon-box i,
+[data-bs-theme="light"] .milestone-icon-box i,
+[data-bs-theme="dark"] .milestone-icon-box i,
+[data-bs-theme="light"] .brand-icon.rounded-circle i,
+[data-bs-theme="dark"] .brand-icon.rounded-circle i {
+  font-size: 1.85rem !important; /* Noticeably larger icon size */
+  color: var(--palette-4, #c9a96e) !important; /* Identical warm travertine gold in both light and dark themes */
+  line-height: 1;
+  transition: transform var(--sp-transition-fast);
+}
+
+.milestone-card:hover .milestone-icon-box i,
+.milestone-icon-box:hover i {
+  transform: scale(1.1);
+}
+
+/* --------------------------------------------------
    13. ACCORDION (FAQ)
    -------------------------------------------------- */
 .sp-accordion .accordion-item {
