@@ -208,19 +208,19 @@ img {
 }
 
 .navbar-brand-logo .brand-logo-img {
-  height: 54px;
+  height: 64px;
   width: auto;
-  max-width: 195px;
+  max-width: 235px;
   object-fit: contain;
   display: block;
   /* Enhanced multi-layer shadow and brightness boost for prominent visibility across various backgrounds */
-  filter: drop-shadow(0 2px 7px rgba(0, 0, 0, 0.55)) brightness(1.14) contrast(1.06);
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 10px rgba(201, 169, 110, 0.25)) brightness(1.18) contrast(1.08);
   transition: transform var(--sp-transition-fast), filter var(--sp-transition-fast);
 }
 
 .navbar-brand-logo:hover .brand-logo-img {
-  transform: scale(1.03);
-  filter: drop-shadow(0 4px 14px rgba(166, 138, 100, 0.45)) brightness(1.22);
+  transform: scale(1.04);
+  filter: drop-shadow(0 4px 14px rgba(201, 169, 110, 0.55)) brightness(1.24);
 }
 
 /* Optional Logo Background Variants (Various Colors Support) */
@@ -299,36 +299,44 @@ img {
   margin-top: 2px;
 }
 
-/* Navigation Links (Centered, Ultra-Compact Spacing between Nav Items) */
+/* Navigation Links (Centered, Evenly Distributed Spacing across Available Space) */
 .sp-navbar .navbar-nav {
   margin: 0 auto;
+  width: 100%;
+  max-width: 820px;
+  justify-content: space-evenly;
 }
 
 .sp-navbar .nav-link {
   font-family: var(--sp-font-heading);
   font-weight: 700;
-  font-size: 0.925rem;
+  font-size: 0.95rem;
   color: #ffffff !important;
-  padding: 0.35rem 0.5rem !important; /* Ultra-compact space between nav items */
+  padding: 0.45rem 0.9rem !important;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  transition: color var(--sp-transition-fast);
+  transition: color var(--sp-transition-fast), background-color var(--sp-transition-fast);
   text-decoration: none;
   white-space: nowrap;
+  border-radius: var(--sp-radius-sm);
+}
+
+.sp-navbar .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 @media (min-width: 992px) and (max-width: 1299.98px) {
   .sp-navbar .nav-link {
-    font-size: 0.82rem;
-    padding: 0.3rem 0.35rem !important;
+    font-size: 0.85rem;
+    padding: 0.35rem 0.6rem !important;
   }
   .sp-navbar .navbar-nav {
-    gap: 0.2rem !important;
+    gap: 0.35rem !important;
   }
   .navbar-brand-logo .brand-logo-img {
-    height: 46px;
+    height: 52px;
   }
   .btn-navbar-cta {
     font-size: 0.8rem;
@@ -589,6 +597,8 @@ img {
 .dir-toggle-btn i,
 .theme-toggle-btn .fa-sun,
 .theme-toggle-btn .fa-moon,
+.dir-toggle-btn .fa-align-right,
+.dir-toggle-btn .fa-align-left,
 .dir-toggle-btn .fa-right-left {
   color: #ffffff !important;
   font-size: 0.88rem;
@@ -599,6 +609,8 @@ img {
 .dir-toggle-btn:hover i,
 .theme-toggle-btn:hover .fa-sun,
 .theme-toggle-btn:hover .fa-moon,
+.dir-toggle-btn:hover .fa-align-right,
+.dir-toggle-btn:hover .fa-align-left,
 .dir-toggle-btn:hover .fa-right-left {
   color: #ffffff !important;
 }
@@ -927,7 +939,12 @@ form .btn-gold-outline,
 
 /* Home Page 2 Hero Background (Architectural Blueprint Planning - JPEG Format) */
 .hero-contractor-hero {
-  background: linear-gradient(135deg, rgba(25, 30, 20, 0.88) 0%, rgba(38, 46, 30, 0.84) 100%),
+  background: linear-gradient(90deg, rgba(20, 26, 18, 0.82) 0%, rgba(20, 26, 18, 0.62) 50%, rgba(20, 26, 18, 0.32) 100%),
+              url('../images/home-contractor-bg.jpeg') center/cover no-repeat !important;
+}
+
+[data-bs-theme="light"] .hero-contractor-hero {
+  background: linear-gradient(90deg, rgba(24, 32, 20, 0.78) 0%, rgba(24, 32, 20, 0.58) 50%, rgba(24, 32, 20, 0.28) 100%),
               url('../images/home-contractor-bg.jpeg') center/cover no-repeat !important;
 }
 
@@ -3083,6 +3100,23 @@ form .btn-gold-outline,
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
   width: calc(50% - 40px);
   transition: transform var(--sp-transition-fast), box-shadow var(--sp-transition-fast), border-color var(--sp-transition-fast);
+}
+
+.timeline-content .badge-gold-subtle {
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 0.4rem 1rem;
+  letter-spacing: 0.06em;
+  background-color: rgba(127, 79, 36, 0.16);
+  color: #5c3512;
+  border-color: rgba(127, 79, 36, 0.50);
+}
+
+[data-bs-theme="dark"] .timeline-content .badge-gold-subtle {
+  background-color: rgba(201, 169, 110, 0.25);
+  color: #fffaf0;
+  border-color: rgba(201, 169, 110, 0.65);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .timeline-content:hover {

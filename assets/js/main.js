@@ -73,14 +73,21 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem(DIR_KEY, dir);
 
     dirToggleBtns.forEach((btn) => {
+      const icon = btn.querySelector('i');
       if (dir === 'rtl') {
         btn.setAttribute('title', 'Switch to Left-to-Right (LTR)');
         btn.setAttribute('aria-label', 'Switch to Left-to-Right (LTR)');
         btn.classList.add('active');
+        if (icon) {
+          icon.className = 'fas fa-align-left';
+        }
       } else {
         btn.setAttribute('title', 'Switch to Right-to-Left (RTL)');
         btn.setAttribute('aria-label', 'Switch to Right-to-Left (RTL)');
         btn.classList.remove('active');
+        if (icon) {
+          icon.className = 'fas fa-align-right';
+        }
       }
     });
 
