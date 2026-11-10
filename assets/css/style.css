@@ -2587,6 +2587,162 @@ form .btn-gold-outline,
 }
 
 /* --------------------------------------------------
+   14b. CLIENT DISCUSSION & COMMENTS (Responsive & Aligned)
+   -------------------------------------------------- */
+.discussion-thread {
+  margin-bottom: 2rem;
+}
+
+.comment-card {
+  background: var(--sp-bg-card);
+  border: 1px solid var(--sp-border-color);
+  border-radius: var(--sp-radius-md, 12px);
+  padding: 1.25rem 1.25rem;
+  margin-bottom: 1rem;
+  transition: all var(--sp-transition-fast);
+}
+
+.comment-card:hover {
+  border-color: rgba(166, 138, 100, 0.4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.comment-avatar {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid var(--sp-border-subtle, rgba(0, 0, 0, 0.08));
+}
+
+.comment-avatar.author-avatar {
+  border: 2px solid var(--palette-4, #c9a96e);
+}
+
+.comment-card .flex-grow-1 {
+  min-width: 0;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.comment-author-name {
+  font-family: var(--sp-font-heading);
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--sp-text-heading);
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.comment-badge-author {
+  background: rgba(166, 138, 100, 0.15);
+  color: var(--palette-1, #7f4f24);
+  border: 1px solid rgba(166, 138, 100, 0.35);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--sp-radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+
+[data-bs-theme="dark"] .comment-badge-author {
+  background: rgba(201, 169, 110, 0.2);
+  color: var(--palette-4, #c9a96e);
+  border-color: rgba(201, 169, 110, 0.4);
+}
+
+.comment-badge-client {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--sp-text-muted);
+  border: 1px solid var(--sp-border-color);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--sp-radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+}
+
+[data-bs-theme="dark"] .comment-badge-client {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.comment-date {
+  font-size: 0.8rem;
+  color: var(--sp-text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+.comment-text {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--sp-text-muted);
+  margin-bottom: 0;
+}
+
+/* Reply Comment Indentation & Connector Thread */
+.comment-reply {
+  margin-left: 1.25rem;
+  position: relative;
+  border-left: 3px solid var(--palette-4, #c9a96e);
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 576px) {
+  .comment-reply {
+    margin-left: 2.25rem;
+    padding-left: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .comment-reply {
+    margin-left: 2.75rem;
+    padding-left: 1.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .comment-card {
+    padding: 1rem 0.9rem;
+  }
+  .comment-avatar {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+  }
+  .comment-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  .comment-reply {
+    margin-left: 0.75rem;
+    padding-left: 0.75rem;
+  }
+}
+
+/* --------------------------------------------------
    15. FORMS & INPUTS
    -------------------------------------------------- */
 .form-control,
