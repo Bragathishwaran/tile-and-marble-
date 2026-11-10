@@ -2633,6 +2633,21 @@ form .btn-gold-outline,
   padding-top: 1rem;
 }
 
+.blog-footer a {
+  display: inline-flex;
+  align-items: center;
+  transition: color var(--sp-transition-fast);
+}
+
+.blog-footer a i {
+  transition: transform var(--sp-transition-fast);
+}
+
+.blog-footer a:hover i,
+.blog-card:hover .blog-footer a i {
+  transform: translateX(4px);
+}
+
 .blog-sidebar-sticky {
   position: -webkit-sticky;
   position: sticky;
