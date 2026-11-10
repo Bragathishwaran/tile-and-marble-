@@ -319,6 +319,23 @@ img {
   white-space: nowrap;
 }
 
+@media (min-width: 992px) and (max-width: 1299.98px) {
+  .sp-navbar .nav-link {
+    font-size: 0.82rem;
+    padding: 0.3rem 0.35rem !important;
+  }
+  .sp-navbar .navbar-nav {
+    gap: 0.2rem !important;
+  }
+  .navbar-brand-logo .brand-logo-img {
+    height: 46px;
+  }
+  .btn-navbar-cta {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.75rem;
+  }
+}
+
 .sp-navbar .nav-link i {
   margin-right: 4px;
   font-size: 0.85em;

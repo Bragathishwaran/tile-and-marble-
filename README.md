@@ -12,7 +12,7 @@ Engineered to meet the strict commercial release standards of marketplaces such 
 - **Bootstrap 5.3.3**: Built with the latest stable Bootstrap core, modular utilities, and semantic HTML5.
 - **Persistent Dark & Light Mode**: Real-time theme switching using CSS custom properties (`:root` & `[data-bs-theme="dark"]`) and browser `localStorage` persistence.
 - **Icon-Only RTL / LTR Direction Switcher**: Dedicated `<button class="dir-toggle-btn">` switching document direction seamlessly between Left-to-Right and Right-to-Left.
-- **Streamlined Navigation with Unique Home Showcase Dropdown**: Top navigation links: **Home ▾** (with dropdown switching between **Luxury Stone Showcase** and **Contractor Pro & Estimator**), **About Us**, **Services**, **Pricing**, **Blog**, and **Contact**, delivering an intuitive user experience without cluttered "Pages" dropdowns.
+- **Streamlined Navigation with Dedicated Showcase Links**: Direct top navigation links: **Luxury Stone Showcase**, **Contractor Pro & Estimator**, **About Us**, **Services**, **Pricing**, **Blog**, and **Contact**, delivering an intuitive, fully accessible user experience across all devices.
 - **Dedicated Pricing & Specification Page (`pricing.html`)**: Fully featured page incorporating:
   - 3-Tier Investment Plans (Standard Residential at $24/sq ft, Architectural Luxury at $38/sq ft, Estate & Commercial Custom).
   - Quick Interactive Estimator Banner linking directly to the live cost calculator.
