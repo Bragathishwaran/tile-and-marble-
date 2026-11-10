@@ -2049,6 +2049,68 @@ img {
   flex-shrink: 0;
 }
 
+/* Consultation & Slab Reservation Card Buttons (Compact, Aligned & Responsive) */
+.reservation-btn-primary {
+  background: linear-gradient(135deg, var(--sp-primary) 0%, var(--sp-primary-hover) 100%) !important;
+  color: #ffffff !important;
+  font-family: var(--sp-font-heading);
+  font-weight: 600;
+  font-size: 0.88rem !important;
+  padding: 0.55rem 1rem !important;
+  border-radius: var(--sp-radius-md, 10px) !important;
+  border: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  box-shadow: 0 3px 12px rgba(127, 79, 36, 0.28);
+  transition: all var(--sp-transition-fast);
+  width: 100%;
+  text-align: center;
+  line-height: 1.35;
+}
+
+.reservation-btn-primary:hover {
+  background: linear-gradient(135deg, var(--sp-primary-hover) 0%, var(--palette-1) 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(127, 79, 36, 0.40);
+  color: #ffffff !important;
+}
+
+.reservation-btn-secondary {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+  font-family: var(--sp-font-heading);
+  font-weight: 500;
+  font-size: 0.82rem !important;
+  padding: 0.5rem 0.85rem !important;
+  border-radius: var(--sp-radius-md, 10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  text-decoration: none;
+  transition: all var(--sp-transition-fast);
+  width: 100%;
+  text-align: center;
+  line-height: 1.35;
+}
+
+.reservation-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.16) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+.reservation-btn-secondary i {
+  color: var(--palette-4) !important;
+  font-size: 0.82rem;
+  flex-shrink: 0;
+}
+
 /* --------------------------------------------------
    11. TESTIMONIALS & REVIEWS
    -------------------------------------------------- */
