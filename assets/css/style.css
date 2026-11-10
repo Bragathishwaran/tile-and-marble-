@@ -915,13 +915,13 @@ form .btn-gold-outline,
    -------------------------------------------------- */
 .hero-general {
   position: relative;
-  min-height: 85vh;
+  min-height: 55vh;
   display: flex;
   align-items: center;
   background: linear-gradient(135deg, rgba(51, 61, 41, 0.90) 0%, rgba(65, 72, 51, 0.84) 100%),
               url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
   color: #ffffff;
-  padding: 6rem 0;
+  padding: 4.5rem 0 3.75rem;
   overflow: hidden;
 }
 
@@ -997,7 +997,7 @@ form .btn-gold-outline,
 /* Contractor Hero (Contractor Pro & Estimator) */
 .hero-contractor {
   position: relative;
-  padding: 6rem 0 4.5rem;
+  padding: 4.25rem 0 3.25rem;
   background: var(--sp-bg-surface);
   border-bottom: 1px solid var(--sp-border-color);
   overflow: hidden;
@@ -1008,13 +1008,13 @@ form .btn-gold-outline,
    ================================================== */
 .page-header-luxury {
   position: relative;
-  min-height: 85vh;
+  min-height: 50vh;
   display: flex;
   align-items: center;
   background: linear-gradient(135deg, rgba(20, 26, 16, 0.82) 0%, rgba(32, 40, 24, 0.74) 50%, rgba(20, 26, 16, 0.84) 100%),
               url('../images/Architectural Stone, Marble & Slab Engineering.jpeg') center/cover no-repeat;
   color: #ffffff;
-  padding: 6rem 0;
+  padding: 4.5rem 0 3.5rem;
   border-bottom: 1px solid rgba(166, 138, 100, 0.35);
   overflow: hidden;
 }
@@ -1413,7 +1413,7 @@ form .btn-gold-outline,
 
 .service-card .service-img-wrapper {
   position: relative;
-  height: 230px;
+  height: 185px;
   overflow: hidden;
   background-color: var(--palette-10);
 }
@@ -1449,16 +1449,16 @@ form .btn-gold-outline,
 }
 
 .service-card .service-body {
-  padding: 1.5rem 1.25rem;
+  padding: 1.15rem 1.15rem 0.95rem;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
 .service-card .service-title {
-  font-size: 1.25rem;
+  font-size: 1.12rem;
   font-weight: 700;
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.4rem;
   line-height: 1.35;
 }
 
@@ -1473,14 +1473,15 @@ form .btn-gold-outline,
 
 .service-card .service-desc {
   color: var(--sp-text-muted);
-  font-size: 0.925rem;
-  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  margin-bottom: 0.85rem;
   flex-grow: 1;
 }
 
 .service-card .service-footer {
   border-top: 1px solid var(--sp-border-subtle);
-  padding-top: 0.875rem;
+  padding-top: 0.65rem;
   margin-top: auto;
   display: flex;
   align-items: center;
@@ -2474,7 +2475,7 @@ form .btn-gold-outline,
   background: var(--sp-bg-card);
   border: 1px solid var(--sp-border-color);
   border-radius: var(--sp-radius-lg);
-  padding: 2.5rem 2rem;
+  padding: 1.85rem 1.5rem;
   transition: all var(--sp-transition-normal);
   position: relative;
   text-align: center;
@@ -2483,7 +2484,7 @@ form .btn-gold-outline,
 .pricing-card.featured {
   border: 2px solid var(--sp-primary);
   box-shadow: 0 15px 35px rgba(127, 79, 36, 0.20);
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 /* High-Contrast legibility assurance in both light and dark modes */
@@ -2530,7 +2531,7 @@ form .btn-gold-outline,
 
 .pricing-price {
   font-family: var(--sp-font-heading);
-  font-size: 3rem;
+  font-size: 2.65rem;
   font-weight: 800;
   color: var(--sp-text-heading);
 }
@@ -2544,18 +2545,18 @@ form .btn-gold-outline,
 .pricing-features-list {
   list-style: none;
   padding: 0;
-  margin: 2rem 0;
+  margin: 1.15rem 0 0.75rem 0;
   text-align: left;
 }
 
 .pricing-features-list li {
-  padding: 0.6rem 0;
+  padding: 0.42rem 0;
   border-bottom: 1px dashed var(--sp-border-subtle);
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
   color: var(--sp-text-main);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .pricing-features-list li i.fa-check {
@@ -4449,5 +4450,73 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.82rem;
   line-height: 1.3;
   white-space: normal !important;
+}
+
+/* ==================================================
+   UNIVERSAL UNWANTED SPACE REMOVAL & RESPONSIVE TIGHTENING
+   ================================================== */
+/* Clean section vertical padding across all pages */
+section.py-5 {
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+/* Remove excessive double-padding when container has py inside section.py-5 */
+section.py-5 > .container.py-3,
+section.py-5 > .container.py-4,
+section.py-5 > .container.py-lg-3 {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+/* Tighter, more responsive section margins */
+.my-lg-4 {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Reduce excessive bottom margin on section headers */
+.text-center.mb-5 {
+  margin-bottom: 2rem !important;
+}
+
+/* Mobile & Tablet responsive spacing optimization */
+@media (max-width: 991.98px) {
+  .hero-general,
+  .hero-contractor,
+  .page-header-luxury {
+    min-height: auto !important;
+    padding: 3.5rem 0 2.75rem !important;
+  }
+
+  section.py-5 {
+    padding-top: 2.25rem !important;
+    padding-bottom: 2.25rem !important;
+  }
+
+  .service-card .service-img-wrapper {
+    height: 175px !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero-general,
+  .hero-contractor,
+  .page-header-luxury {
+    padding: 2.75rem 0 2rem !important;
+  }
+
+  section.py-5 {
+    padding-top: 1.85rem !important;
+    padding-bottom: 1.85rem !important;
+  }
+
+  .text-center.mb-5 {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .pricing-card {
+    padding: 1.5rem 1.15rem !important;
+  }
 }
 
