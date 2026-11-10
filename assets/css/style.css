@@ -1734,12 +1734,14 @@ form .btn-gold-outline,
    ================================================== */
 .portfolio-card {
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .portfolio-card .service-img-wrapper,
 .portfolio-card .portfolio-img-container {
   position: relative;
-  height: 230px;
+  height: 185px;
   overflow: hidden;
   background-color: var(--palette-10);
 }
@@ -1750,6 +1752,39 @@ form .btn-gold-outline,
   object-fit: cover;
   object-position: center;
   display: block;
+}
+
+.portfolio-card .service-body {
+  padding: 1.15rem 1.15rem 0.95rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-card .service-title {
+  font-size: 1.12rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  line-height: 1.35;
+}
+
+.portfolio-card .service-desc {
+  color: var(--sp-text-muted);
+  font-size: 0.875rem;
+  line-height: 1.45;
+  margin-bottom: 0.85rem;
+  flex-grow: 1;
+}
+
+.portfolio-card .service-footer {
+  border-top: 1px solid var(--sp-border-subtle);
+  padding-top: 0.65rem;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .portfolio-card .portfolio-img-primary {
@@ -1803,30 +1838,34 @@ form .btn-gold-outline,
   opacity: 0 !important;
 }
 
-/* Alternate Angle Badge in corner of image */
+/* Alternate Angle Badge in corner of image - Perfectly aligned button */
 .portfolio-alt-badge {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 12px;
+  right: 12px;
   z-index: 4;
-  background: rgba(25, 30, 20, 0.82);
+  background: rgba(25, 30, 20, 0.85);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: #edebe4;
   font-size: 0.72rem;
   font-weight: 600;
-  padding: 0.25rem 0.65rem;
+  padding: 0.28rem 0.65rem;
   border-radius: var(--sp-radius-pill);
   transition: all var(--sp-transition-fast);
   cursor: pointer;
   pointer-events: auto;
   user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 [dir="rtl"] .portfolio-alt-badge {
   right: auto;
-  left: 14px;
+  left: 12px;
 }
 
 /* Prevent badge from changing when hovering over the card */
@@ -4494,7 +4533,9 @@ section.py-5 > .container.py-lg-3 {
     padding-bottom: 2.25rem !important;
   }
 
-  .service-card .service-img-wrapper {
+  .service-card .service-img-wrapper,
+  .portfolio-card .service-img-wrapper,
+  .portfolio-card .portfolio-img-container {
     height: 175px !important;
   }
 }
@@ -4509,6 +4550,12 @@ section.py-5 > .container.py-lg-3 {
   section.py-5 {
     padding-top: 1.85rem !important;
     padding-bottom: 1.85rem !important;
+  }
+
+  .service-card .service-img-wrapper,
+  .portfolio-card .service-img-wrapper,
+  .portfolio-card .portfolio-img-container {
+    height: 165px !important;
   }
 
   .text-center.mb-5 {
