@@ -38,7 +38,7 @@
       <div class="d-flex align-items-center gap-1 gap-sm-2 order-lg-3">
         <!-- RTL / LTR Direction Toggle (Icon-only) -->
         <button class="dir-toggle-btn" aria-label="Toggle Direction RTL/LTR" title="Toggle RTL / LTR Direction">
-          <i class="fas fa-align-right"></i>
+          <i class="fas fa-right-left" aria-hidden="true"></i>
         </button>
 
         <!-- Light / Dark Theme Switcher -->
@@ -235,7 +235,6 @@
               <li><i class="fas fa-check"></i> Deep Hydrophobic Fluoropolymer Sealing</li>
               <li><i class="fas fa-check"></i> Symmetrical Vein Direction Planning</li>
               <li><i class="fas fa-check"></i> 25-Year Fully Transferrable Warranty</li>
-              <li class="text-muted text-decoration-line-through"><i class="fas fa-times"></i> Commercial Nighttime Shift Schedules</li>
             </ul>
 
             <div class="mt-auto pt-3 border-top">
@@ -254,7 +253,7 @@
             </div>
 
             <div class="pricing-price mb-2">
-              Custom<small> Bid</small>
+              <span class="pricing-price-main">Custom</span><small>Bid</small>
             </div>
             <div class="text-muted small mb-3">Dedicated project engineer, off-hour shifts & volume rates</div>
 
@@ -559,9 +558,15 @@
           </div>
         </div>
       </div>
-      <div class="footer-bottom d-flex justify-content-between align-items-center">
-        <div>&copy; 2026 ServicePro. All Rights Reserved.</div>
-        <div>Commercial Release Standard</div>
+      <div class="footer-bottom">
+        <p class="footer-copyright mb-0">&copy; 2026 ServicePro Inc. All Rights Reserved. Built for ThemeForest &amp; Commercial Release.</p>
+        <nav class="footer-legal-links" aria-label="Legal navigation">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <span class="footer-legal-divider" aria-hidden="true">|</span>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <span class="footer-legal-divider" aria-hidden="true">|</span>
+          <a href="contact.html">Support</a>
+        </nav>
       </div>
     </div>
   </footer>

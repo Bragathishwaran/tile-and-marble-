@@ -27,7 +27,7 @@
       <div class="d-flex align-items-center gap-1 gap-sm-2 order-lg-3">
         <!-- RTL / LTR Direction Toggle (Icon-only) -->
         <button class="dir-toggle-btn" aria-label="Toggle Direction RTL/LTR" title="Toggle RTL / LTR Direction">
-          <i class="fas fa-align-right"></i>
+          <i class="fas fa-right-left" aria-hidden="true"></i>
         </button>
 
         <!-- Light / Dark Theme Switcher -->
@@ -179,25 +179,25 @@
               <div class="row g-3 mb-3">
                 <div class="col-md-6">
                   <label class="form-label small fw-bold">First & Last Name <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" placeholder="e.g. Eleanor Vance" required>
-                  <div class="invalid-feedback">Please enter your name.</div>
+                  <input type="text" class="form-control" placeholder="e.g. Eleanor Vance" minlength="8" data-validate="name" autocomplete="name" required>
+                  <div class="invalid-feedback">Please enter at least 8 letters for your name.</div>
                 </div>
                 <div class="col-md-6">
                   <label class="form-label small fw-bold">Phone Number <span class="text-danger">*</span></label>
-                  <input type="tel" class="form-control" placeholder="(555) 000-0000" required>
-                  <div class="invalid-feedback">Please provide a valid phone number.</div>
+                  <input type="tel" class="form-control" placeholder="(555) 000-0000" inputmode="tel" data-validate="phone" autocomplete="tel" required>
+                  <div class="invalid-feedback">Please provide a valid phone number with at least 7 digits.</div>
                 </div>
               </div>
 
               <div class="row g-3 mb-3">
                 <div class="col-md-6">
                   <label class="form-label small fw-bold">Email Address <span class="text-danger">*</span></label>
-                  <input type="email" class="form-control" placeholder="name@domain.com" required>
+                  <input type="email" class="form-control" placeholder="name@domain.com" data-validate="email" autocomplete="email" required>
                   <div class="invalid-feedback">Please provide a valid email.</div>
                 </div>
                 <div class="col-md-6">
                   <label class="form-label small fw-bold">Project Location (City / Zip)</label>
-                  <input type="text" class="form-control" placeholder="e.g. Tribeca, NY 10013" required>
+                  <input type="text" class="form-control" placeholder="e.g. Tribeca, NY 10013" minlength="2" autocomplete="address-level2" required>
                 </div>
               </div>
 
@@ -215,7 +215,7 @@
                 </div>
                 <div class="col-md-6">
                   <label class="form-label small fw-bold">Approximate Area (Sq Ft)</label>
-                  <input type="number" class="form-control" placeholder="e.g. 750" required>
+                  <input type="number" class="form-control" placeholder="e.g. 750" min="1" step="1" required>
                 </div>
               </div>
 
@@ -338,9 +338,15 @@
           </div>
         </div>
       </div>
-      <div class="footer-bottom d-flex justify-content-between align-items-center">
-        <div>&copy; 2026 ServicePro. All Rights Reserved.</div>
-        <div>Commercial Release Standard</div>
+      <div class="footer-bottom">
+        <p class="footer-copyright mb-0">&copy; 2026 ServicePro Inc. All Rights Reserved. Built for ThemeForest &amp; Commercial Release.</p>
+        <nav class="footer-legal-links" aria-label="Legal navigation">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <span class="footer-legal-divider" aria-hidden="true">|</span>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <span class="footer-legal-divider" aria-hidden="true">|</span>
+          <a href="contact.html">Support</a>
+        </nav>
       </div>
     </div>
   </footer>

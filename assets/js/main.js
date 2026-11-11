@@ -8,6 +8,89 @@ document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   /* --------------------------------------------------
+     0. CONSISTENT HOME NAVIGATION
+     -------------------------------------------------- */
+  // Both home experiences remain available in this menu, while the navbar
+  // presents them under one predictable Home item on every page.
+  const homeNavToggle = document.querySelector('.sp-navbar .navbar-nav > .nav-item.dropdown > .dropdown-toggle');
+  if (homeNavToggle) {
+    const homeNavLabel = homeNavToggle.querySelector('.d-inline-flex');
+    if (homeNavLabel && homeNavLabel.firstChild) {
+      homeNavLabel.firstChild.nodeValue = 'Home ';
+    }
+    homeNavToggle.setAttribute('href', '#');
+    homeNavToggle.setAttribute('aria-label', 'Home page options');
+  }
+
+  // Keep the two Home dropdown choices compact while retaining their fuller
+  // descriptions underneath, so the menu stays readable on smaller screens.
+  document.querySelectorAll('.sp-dropdown-menu .item-title').forEach((title) => {
+    const link = title.closest('a');
+    const shortLabel = link && link.getAttribute('href') === 'index.html'
+      ? 'Stone Gallery'
+      : 'Pro Estimator';
+    const icon = title.querySelector('i');
+    title.replaceChildren(icon, document.createTextNode(` ${shortLabel}`));
+  });
+
+  // The compact Home menu needs only the short destination names; remove
+  // secondary descriptions and status badges from the dropdown items.
+  document.querySelectorAll('.sp-dropdown-menu .item-desc, .sp-dropdown-menu .badge')
+    .forEach((element) => element.remove());
+
+  document.querySelectorAll('.sp-footer .footer-title').forEach((title) => {
+    if (title.textContent.trim() !== 'Navigation') return;
+
+    const navigation = title.nextElementSibling;
+    if (!navigation || navigation.classList.contains('footer-link-groups')) return;
+
+    navigation.remove();
+    title.outerHTML = `
+      <div class="footer-link-groups">
+        <div class="footer-link-group">
+          <h4 class="footer-title">Nav Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Stone Gallery</a></li>
+            <li><a href="home-contractor.html">Pro Estimator</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-link-group">
+          <h4 class="footer-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="pricing.html#specMatrix">Specifications</a></li>
+            <li><a href="contact.html">Free Estimate</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="privacy.html#terms">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>`;
+  });
+
+  // Keep legal links consistent wherever the shared footer is rendered.
+  document.querySelectorAll('.sp-footer a').forEach((link) => {
+    const label = link.textContent.trim();
+    if (label === 'Privacy Policy') {
+      link.href = 'privacy.html';
+    } else if (label === 'Terms of Service') {
+      link.href = 'privacy.html#terms';
+    }
+  });
+
+  document.querySelectorAll('.sp-footer .footer-bottom').forEach((bottom) => {
+    if (!bottom.querySelector('a[href*="privacy.html"]')) {
+      const legalLinks = document.createElement('div');
+      legalLinks.className = 'footer-legal-links d-flex gap-3';
+      legalLinks.innerHTML = '<a href="privacy.html" class="text-muted">Privacy Policy</a><span class="text-muted">|</span><a href="privacy.html#terms" class="text-muted">Terms of Service</a>';
+      bottom.appendChild(legalLinks);
+    }
+  });
+
+  /* --------------------------------------------------
      1. THEME SWITCHER (DARK & LIGHT MODE PERSISTENCE)
      -------------------------------------------------- */
   const THEME_KEY = 'servicepro_theme';
@@ -79,14 +162,14 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.setAttribute('aria-label', 'Switch to Left-to-Right (LTR)');
         btn.classList.add('active');
         if (icon) {
-          icon.className = 'fas fa-align-left';
+          icon.className = 'fas fa-right-left';
         }
       } else {
         btn.setAttribute('title', 'Switch to Right-to-Left (RTL)');
         btn.setAttribute('aria-label', 'Switch to Right-to-Left (RTL)');
         btn.classList.remove('active');
         if (icon) {
-          icon.className = 'fas fa-align-right';
+          icon.className = 'fas fa-right-left';
         }
       }
     });
@@ -348,6 +431,89 @@ document.addEventListener('DOMContentLoaded', () => {
   /* --------------------------------------------------
      8. INTERACTIVE QUOTE & CONTACT FORM VALIDATION
      -------------------------------------------------- */
+  const getFieldContext = (field) => {
+    const wrapper = field.closest('.col-md-6, .col-lg-6, .mb-3, .mb-4, .footer-newsletter-input-group, .form-check') || field.parentElement;
+    const label = wrapper ? wrapper.querySelector('label') : null;
+    return `${label ? label.textContent : ''} ${field.getAttribute('placeholder') || ''} ${field.getAttribute('aria-label') || ''}`.toLowerCase();
+  };
+
+  const getFieldKind = (field) => {
+    const context = getFieldContext(field);
+    if (field.type === 'email' || context.includes('email')) return 'email';
+    if (field.type === 'tel' || /phone|mobile|contact number/.test(context)) return 'phone';
+    if (field.type === 'text' && /name|full name/.test(context)) return 'name';
+    if (field.type === 'number' || /amount|quantity|age|zip|postal|sq ft|area/.test(context)) return 'number';
+    return null;
+  };
+
+  const validateField = (field) => {
+    const kind = getFieldKind(field);
+    if (!kind) return true;
+
+    const value = field.value.trim();
+    const requiredMessage = 'This field is required.';
+    let message = '';
+
+    if (!value) {
+      message = field.required ? requiredMessage : '';
+    } else if (kind === 'name' && !/^[A-Za-z]+(?: [A-Za-z]+)*$/.test(value)) {
+      message = 'Use letters and spaces only.';
+    } else if (kind === 'name' && value.replace(/ /g, '').length < 8) {
+      message = 'Enter at least 8 letters for your name.';
+    } else if (kind === 'phone' && !/^\d{10}$/.test(value)) {
+      message = 'Enter exactly 10 digits.';
+    } else if (kind === 'email' && !/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(value)) {
+      message = 'Enter a valid email with @ and a domain.';
+    } else if (kind === 'number' && !/^\d+$/.test(value)) {
+      message = 'Use numbers only.';
+    }
+
+    field.setCustomValidity(message);
+    const feedback = field.parentElement ? field.parentElement.querySelector('.invalid-feedback') : null;
+    if (feedback && message) feedback.textContent = message;
+    if (field.form && field.form.classList.contains('was-validated')) {
+      field.classList.toggle('is-invalid', Boolean(message));
+      field.classList.toggle('is-valid', !message && Boolean(value));
+    }
+    return !message;
+  };
+
+  const validationForms = document.querySelectorAll('form:not(#flooringCalculatorForm)');
+  validationForms.forEach((form) => {
+    form.querySelectorAll('input, textarea, select').forEach((field) => {
+      const kind = getFieldKind(field);
+      if (kind === 'phone') {
+        field.setAttribute('inputmode', 'numeric');
+        field.setAttribute('autocomplete', 'tel');
+        field.maxLength = 10;
+      } else if (kind === 'name') {
+        field.setAttribute('autocomplete', 'name');
+      } else if (kind === 'email') {
+        field.setAttribute('autocomplete', 'email');
+      }
+
+      field.addEventListener('input', () => {
+        if (kind === 'name') {
+          field.value = field.value.replace(/[^A-Za-z ]/g, '').replace(/\s{2,}/g, ' ');
+        } else if (kind === 'phone' || kind === 'number') {
+          field.value = field.value.replace(/\D/g, '');
+        }
+        validateField(field);
+      });
+
+      field.addEventListener('blur', () => validateField(field));
+    });
+
+    form.addEventListener('submit', (event) => {
+      form.querySelectorAll('input, textarea, select').forEach(validateField);
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+        form.classList.add('was-validated');
+      }
+    }, true);
+  });
+
   const quoteForms = document.querySelectorAll('.needs-validation');
   quoteForms.forEach((form) => {
     form.addEventListener('submit', (event) => {
